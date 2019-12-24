@@ -1,10 +1,10 @@
-import React from 'react';
-import {ISuggestion } from './interface';
-import { Store } from './context';
+import React, {useContext} from 'react';
+import {ISuggestion } from '../../../iterface/interface';
+import { Store } from '../../../context/context';
 
 export default function Suggestions():JSX.Element {
       
-      const {state, dispatch} = React.useContext(Store);
+      const {state, dispatch} = useContext(Store);
       const {suggestions} = state;
       return (
         <>
@@ -12,7 +12,7 @@ export default function Suggestions():JSX.Element {
       return (
         <li className='suggestion-item' key={key} onClick={()=>dispatch({type:'SELECT',payload:suggestion})}  >
       <h4 className='suggestion-item__top'>{suggestion.value}</h4>
-      <p className='suggestion-item__bottom'>789098768945 г. Санкт-Петербург {suggestion.data.inn} {suggestion.data.address.data.city}</p>
+      <p className='suggestion-item__bottom'>{suggestion.data.inn} {suggestion.data.address.data.city}</p>
         </li>
       )
     })}

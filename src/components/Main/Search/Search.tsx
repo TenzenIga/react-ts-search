@@ -1,7 +1,7 @@
 import React,{ useState, useContext} from 'react'
-
-import { Store } from './context';
-
+import { Store } from '../../../context/context';
+import Suggestions from './Suggestions';
+import Org from './Org';
 
 export function Search() {
   const {state, dispatch} = useContext(Store); 
@@ -33,12 +33,20 @@ export function Search() {
     })
   }
     return (
-      
+      <>
       <div className='search'>
       <p className='search__title'>Организация или ИП</p>
       <input type='text' value={value}  onChange={(e)=>handleChange(e.target.value)} className='search__input' placeholder='Введите название, ИНН или адрес организации' />
     </div>
+      {state.suggestions.length > 0 ?
+        (<ul className='suggestions'>
+             <Suggestions  />
+        </ul>)
+        : (<Org />) }
+    </>
     )
+    
 }
 
 export default Search;
+

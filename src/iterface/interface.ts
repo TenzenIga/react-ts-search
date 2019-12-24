@@ -19,14 +19,14 @@ export interface ISuggestion{
     inn:number
     ogrn:number
     address:IOrgAddress
-    management:IOrgManagement
+    management?:IOrgManagement
   }
    export interface IOrgAddress{
      unrestricted_value:string
      data:IAddressData
    }
   export interface IOrgManagement{
-    name?:string
+    name:string
   }  
   export interface IAddressData{
     city: string

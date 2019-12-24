@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { StoreProvider } from './components/context';
+import { StoreProvider } from './context/context';
 
 ReactDOM.render(<StoreProvider><App /></StoreProvider>, document.getElementById('root'));
 
